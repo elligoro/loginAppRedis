@@ -5,33 +5,17 @@ option csharp_namespace = "loginAppRedis.Services";
 import "protos/enums.proto";
 
 service CacheService {
-	rpc GetCache(GetCacheReqMessage) returns (GetCacheResMessage);
-	rpc UpdateCache(UpdateCacheReqMessage) returns (CacheStatusMessage);
-	rpc DeleteCache(RemoveCacheReqMessage) returns (CacheStatusMessage);
+	rpc GetCache(CacheReqMessage) returns (CacheResMessage);
+	rpc UpdateCache(CacheReqMessage) returns (CacheResMessage);
 }
 
-message GetCacheReqMessage
+message CacheReqMessage
 {
 	string UserName = 1;
 }
 
-message GetCacheResMessage
-{
-	string CacheModelStr = 1;
-}
 
-message UpdateCacheReqMessage
+message CacheResMessage
 {
-	string UserName = 1;
-	string CacheModelStr = 2;
-}
-
-message RemoveCacheReqMessage
-{
-	string UserName = 1;
-}
-
-message CacheStatusMessage
-{
-	CacheStatus Status = 1;
+	bool isLocked = 1;
 }
