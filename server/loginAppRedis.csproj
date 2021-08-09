@@ -23,5 +23,9 @@
     <Protobuf Include="protos\enums.proto" GrpcServices="None" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
 
 </Project>
